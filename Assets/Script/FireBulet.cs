@@ -6,7 +6,6 @@ public class FireBulet : MonoBehaviour
 {
 
     private Renderer bulletRenderer;
-    public float damege = 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,16 +42,11 @@ public class FireBulet : MonoBehaviour
     //    }
     //}
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag=="Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<EnemyHealthBar>().ReduceHP(damege);
-            Destroy(gameObject);
-        }
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.gameObject.GetComponent<PlayerHealthBar>().ReduceHP(damege);
+            Debug.Log("-10");
             Destroy(gameObject);
         }
     }
