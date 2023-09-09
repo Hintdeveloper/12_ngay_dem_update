@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d58d6a5f1487d264da7e7d364c2fbb77, type: 3}
+  m_Script: {fileID: 11500000, guid: d6be7add2a8d9904b94a5f2b390b9fef, type: 3}
   m_Name: Giap
   m_EditorClassIdentifier: 
   powerUpSprite: {fileID: 7482667652216324306, guid: b858a5ff7a1409a40b6c3f71db79e4ac, type: 3}

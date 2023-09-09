@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d58d6a5f1487d264da7e7d364c2fbb77, type: 3}
+  m_Script: {fileID: 11500000, guid: d6be7add2a8d9904b94a5f2b390b9fef, type: 3}
   m_Name: DanPhao
   m_EditorClassIdentifier: 
   powerUpSprite: {fileID: -2413806693520163455, guid: 2257f39e6e9fb6943bb23de732b56e3d, type: 3}
   powerUpName: DanPhao
-  powerUpRate: 10
+  powerUpRate: 50

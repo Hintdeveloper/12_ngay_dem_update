@@ -9,6 +9,9 @@ TagManager:
   - Projectile
   - Enemy_1
   - Enemy_2
+  - Shield
+  - Audio
+  - Buff
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Another UI
   - 
   - 
   - 

@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class BackGroundLoop : MonoBehaviour
 {
-   
-    public float scrollSpeed = 0.5f;
-    private Renderer _renderer;
+    public float speed = 30f;
+    private Vector3 startPosition;
+    private float repeatHeight;
 
     private void Start()
     {
-        _renderer = GetComponent<Renderer>();
+        startPosition = new Vector3(transform.position.x, transform.position.y, 2);
+        repeatHeight = GetComponent<BoxCollider2D>().size.y / 2;
     }
 
     private void Update()
     {
-        float offset = Time.time * scrollSpeed;
-        _renderer.material.mainTextureOffset = new Vector2(offset, 0);
+        transform.Translate(Vector3.down * Time.deltaTime * speed);
+
+        if (transform.position.y < startPosition.y - repeatHeight)
+        {
+            transform.position = startPosition;
+        }
     }
 }
 
