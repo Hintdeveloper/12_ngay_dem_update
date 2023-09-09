@@ -1,4 +1,4 @@
-    using JetBrains.Annotations;
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -61,6 +61,14 @@ public class PlayerMovement : MonoBehaviour
             pos.y = yMax;
         }
         transform.position = pos;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("-90");
+        }
     }
 }
 

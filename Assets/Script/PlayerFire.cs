@@ -10,11 +10,14 @@ public class PlayerFire : MonoBehaviour
     public float delay = 3f;
     public float spawnOffset = 0.5f; // Offset distance in front of the player
 
+    public AudioClip fireSound;
+    private AudioSource source;
+
     private float timer = 0f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,7 @@ public class PlayerFire : MonoBehaviour
         {
             Vector3 spawnPosition = bulletSpawnPoint.position + bulletSpawnPoint.up * spawnOffset;
             GameObject bullet = Instantiate(bulletPrefab, spawnPosition, bulletSpawnPoint.rotation);
+            source.PlayOneShot(fireSound);
             Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
             bulletRigidbody.velocity = bulletSpawnPoint.up * bulletSpeed;
             timer = 0f;
