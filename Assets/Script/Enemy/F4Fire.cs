@@ -14,22 +14,24 @@ public class F4Fire : MonoBehaviour
     public float bulletDuration;
     float remainingDuration;
 
-    AudioManager manager;
-
+    AudioManager audioManager;
     private void Awake()
     {
-        manager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        ShootingBullet();
+        if (!PauseBehavior.isPaused)
+        {
+            ShootingBullet();
+        }
     }
 
     void ShootingBullet()
@@ -38,17 +40,16 @@ public class F4Fire : MonoBehaviour
         {
             isShoot = true;
             Vector3 spawnPosition = bulletSpawnPoint.position + bulletSpawnPoint.up * spawnOffset;
-            GameObject bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.Euler(0,0,180));
-            manager.PlaySFX(manager.GunFire);
+            GameObject bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.Euler(0, 0, 180));
             Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
             bulletRigidbody.velocity = -bulletSpawnPoint.up * bulletSpeed;
+            audioManager.PlaySFX(audioManager.GunFire);
             CoolDown(bulletDuration);
         }
     }
 
     void CoolDown(float second)
     {
-        remainingDuration = second;
         if (isShoot == true)
         {
             StartCoroutine(Timer());
@@ -56,11 +57,7 @@ public class F4Fire : MonoBehaviour
     }
     IEnumerator Timer()
     {
-        while (remainingDuration >= 0)
-        {
-            remainingDuration -= 0.1f;
-            yield return null;
-        }
+        yield return new WaitForSeconds(bulletDuration);
         EndTimer();
     }
     void EndTimer()

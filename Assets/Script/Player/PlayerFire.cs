@@ -13,8 +13,6 @@ public class PlayerFire : MonoBehaviour
     public float rocketSpeed = 10f;
     public float spawnOffset = 0.5f; // Offset distance in front of the player
 
-    //Play weapon fire sound
-    AudioManager manager;
     //Check for cooldown
     bool isShoot = false;
     bool isRocketShoot = false;
@@ -22,13 +20,12 @@ public class PlayerFire : MonoBehaviour
     public float rocketDuration;
     //Bullet cooldown
     public float bulletDuration;
-    float remainingDuration;
-    float rocketRemainingDuration;
+
+    AudioManager manager;
 
     private void Awake()
     {
         manager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-
     }
     // Start is called before the first frame update
     void Start()
@@ -38,8 +35,11 @@ public class PlayerFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ShootingBullet();
-        ShootingRocket();
+        if (!PauseBehavior.isPaused)
+        {
+            ShootingBullet();
+            ShootingRocket();
+        }
     }
 
     void ShootingBullet()
@@ -49,9 +49,9 @@ public class PlayerFire : MonoBehaviour
             isShoot = true;
             Vector3 spawnPosition = SpawnPoint.position + SpawnPoint.up * spawnOffset;
             GameObject bullet = Instantiate(bulletPrefab, spawnPosition, SpawnPoint.rotation);
-            manager.PlaySFX(manager.GunFire);
             Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
             bulletRigidbody.velocity = SpawnPoint.up * bulletSpeed;
+            manager.PlaySFX(manager.GunFire);
             CoolDown(bulletDuration);
         }
     }
@@ -63,16 +63,15 @@ public class PlayerFire : MonoBehaviour
             isRocketShoot = true;
             Vector3 spawnPosition = rocketSpawnPoint.position + rocketSpawnPoint.up * spawnOffset;
             GameObject rocket = Instantiate(rocketPrefab, spawnPosition, rocketSpawnPoint.rotation);
-            manager.PlaySFX(manager.MissileFire);
             Rigidbody2D rocketRigidbody = rocket.GetComponent<Rigidbody2D>();
             rocketRigidbody.velocity = rocketSpawnPoint.up * rocketSpeed;
+            manager.PlaySFX(manager.MissileFire);
             RocketCoolDown(rocketDuration);
         }
 
     }
     void CoolDown(float second)
     {
-        remainingDuration = second;
         if (isShoot == true)
         {
             StartCoroutine(Timer());
@@ -80,7 +79,6 @@ public class PlayerFire : MonoBehaviour
     }
     void RocketCoolDown(float second)
     {
-        rocketRemainingDuration = second;
         if (isRocketShoot == true)
         {
             StartCoroutine(RocketTimer());
@@ -89,20 +87,12 @@ public class PlayerFire : MonoBehaviour
 
     IEnumerator Timer()
     {
-        while (remainingDuration >= 0)
-        {
-            remainingDuration-= 0.1f;
-            yield return null;
-        }
+        yield return new WaitForSeconds(bulletDuration);
         EndTimer();
     }
     IEnumerator RocketTimer()
     {
-        while (rocketRemainingDuration >= 0)
-        {
-            rocketRemainingDuration-= 0.1f;
-            yield return null;
-        }
+        yield return new WaitForSeconds(rocketDuration);
         RocketEndTimer();
     }
 
