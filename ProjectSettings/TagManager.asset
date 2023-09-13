@@ -9,6 +9,13 @@ TagManager:
   - Projectile
   - Enemy_1
   - Enemy_2
+<<<<<<< Updated upstream
+=======
+  - Shield
+  - Audio
+  - Buff
+  - Trigger
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
