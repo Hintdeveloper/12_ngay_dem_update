@@ -20,6 +20,10 @@ public class PlayerMovement : MonoBehaviour
     private float playerWidth;
     private float playerHeight;
 
+
+    //Initiate buff
+    GameObject shield;
+    GameObject sub_player;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,12 @@ public class PlayerMovement : MonoBehaviour
         yMin = -camHeight + playerHeight/2.5f;
         yMax = camHeight - playerHeight/1.5f;
 
+        //Shield Following
+        shield = transform.Find("Shield").gameObject;
+        shield.transform.position = new Vector3(transform.position.x,transform.position.y,-0.03f);
+
+        //Find Sub_Player
+        sub_player = transform.Find("Sub_Player").gameObject;
     }
 
     // Update is called once per frame
@@ -66,6 +76,33 @@ public class PlayerMovement : MonoBehaviour
             pos.y = yMax;
         }
         transform.position = pos;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy")) 
+        {
+            collision.GetComponent<EnemyDamage>().TakeDamage(90);
+        }
+        else if (collision.gameObject.CompareTag("Enemy_1"))
+        {
+            collision.GetComponent<EnemyDamage>().TakeDamage(90);
+        }
+        else if (collision.gameObject.CompareTag("Enemy_2"))
+        {
+            collision.GetComponent<EnemyDamage>().TakeDamage(90);
+        }
+
+    }
+
+    public void ActiveShield()
+    {
+        shield.SetActive(true);
+    }
+
+    public void ActiveSupport()
+    {
+        sub_player.SetActive(true);
     }
 }
 

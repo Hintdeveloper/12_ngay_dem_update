@@ -16,6 +16,8 @@ public class CounterManager : MonoBehaviour
     int B52currentCount = 0;
     int F4currentCount = 0;
 
+    //Call win game
+    public GameManager gameManager;
     private void Awake()
     {
         Instance = this;
@@ -27,7 +29,13 @@ public class CounterManager : MonoBehaviour
         B52Counter.text = B52currentCount.ToString();
         F4Counter.text = F4currentCount.ToString();
     }
-
+    private void Update()
+    {
+        if (B52currentCount >= 5 && A6currentCount+ F4currentCount >= 10) 
+        {
+            gameManager.Win();
+        }
+    }
     public void IncreaseA6()
     {
         A6currentCount++;

@@ -11,53 +11,99 @@ public class PlayerFire : MonoBehaviour
     public Transform rocketSpawnPoint;
     public float bulletSpeed = 10f;
     public float rocketSpeed = 10f;
-    public float delay = 3f;
     public float spawnOffset = 0.5f; // Offset distance in front of the player
 
-    public AudioClip fireSound;
-    public AudioClip rocketFireSound;
-    private AudioSource source;
+    //Check for cooldown
+    bool isShoot = false;
+    bool isRocketShoot = false;
+    //Rocket cooldown
+    public float rocketDuration;
+    //Bullet cooldown
+    public float bulletDuration;
 
-    private float timer = 0f;
+    AudioManager manager;
+
+    private void Awake()
+    {
+        manager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
-        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ShootingBullet();
-        ShootingRocket();
+        if (!PauseBehavior.isPaused)
+        {
+            ShootingBullet();
+            ShootingRocket();
+        }
     }
 
     void ShootingBullet()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= delay)
+        if (isShoot == false)
         {
+            isShoot = true;
             Vector3 spawnPosition = SpawnPoint.position + SpawnPoint.up * spawnOffset;
             GameObject bullet = Instantiate(bulletPrefab, spawnPosition, SpawnPoint.rotation);
-            source.PlayOneShot(fireSound);
             Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
             bulletRigidbody.velocity = SpawnPoint.up * bulletSpeed;
-            timer = 0f;
+            manager.PlaySFX(manager.GunFire);
+            CoolDown(bulletDuration);
         }
     }
 
     void ShootingRocket()
     {
-        timer += Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isRocketShoot == false)
         {
+            isRocketShoot = true;
             Vector3 spawnPosition = rocketSpawnPoint.position + rocketSpawnPoint.up * spawnOffset;
             GameObject rocket = Instantiate(rocketPrefab, spawnPosition, rocketSpawnPoint.rotation);
-            source.PlayOneShot(rocketFireSound);
             Rigidbody2D rocketRigidbody = rocket.GetComponent<Rigidbody2D>();
             rocketRigidbody.velocity = rocketSpawnPoint.up * rocketSpeed;
+            manager.PlaySFX(manager.MissileFire);
+            RocketCoolDown(rocketDuration);
+        }
+
+    }
+    void CoolDown(float second)
+    {
+        if (isShoot == true)
+        {
+            StartCoroutine(Timer());
         }
     }
+    void RocketCoolDown(float second)
+    {
+        if (isRocketShoot == true)
+        {
+            StartCoroutine(RocketTimer());
+        }
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(bulletDuration);
+        EndTimer();
+    }
+    IEnumerator RocketTimer()
+    {
+        yield return new WaitForSeconds(rocketDuration);
+        RocketEndTimer();
+    }
+
+    void EndTimer()
+    {
+        isShoot = false;
+    }
+    void RocketEndTimer()
+    {
+        isRocketShoot = false;
+    }
+
 }
+

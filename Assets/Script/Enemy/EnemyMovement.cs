@@ -25,9 +25,17 @@ public class EnemyMovement : MonoBehaviour
     {
         Vector2 sceenBounds = m_Camera.WorldToScreenPoint(transform.position);
 
-        if (sceenBounds.y < 0 || sceenBounds.y > m_Camera.pixelHeight)
+        if (sceenBounds.y < 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.GetComponent<EnemyDamage>().TakeDamage(90);
         }
     }
 }

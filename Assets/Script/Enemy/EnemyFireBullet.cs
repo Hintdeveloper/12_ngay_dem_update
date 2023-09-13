@@ -50,6 +50,10 @@ public class EnemyFireBullet : MonoBehaviour
             collision.GetComponent<PlayerDamage>().TakeDamage(damage);
             Destroy(gameObject);
         }
+        else if (collision.gameObject.tag == "Shield")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
