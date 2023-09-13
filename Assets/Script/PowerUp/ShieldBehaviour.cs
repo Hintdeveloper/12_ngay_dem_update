@@ -6,8 +6,6 @@ public class ShieldBehaviour : MonoBehaviour
 {
     public int duration;
 
-    int remainingDuration;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,17 +19,12 @@ public class ShieldBehaviour : MonoBehaviour
 
     public void ShieldCoolDown(int second)
     {
-        remainingDuration = second;
         StartCoroutine(Timer());
     }
 
     IEnumerator Timer()
     {
-        while (remainingDuration >= 0)
-        {
-            remainingDuration--;
-            yield return new WaitForSeconds(1f);
-        }
+        yield return new WaitForSeconds(duration);
         EndTimer();
     }
 
