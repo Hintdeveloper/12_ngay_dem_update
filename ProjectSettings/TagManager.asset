@@ -12,6 +12,7 @@ TagManager:
   - Shield
   - Audio
   - Buff
+  - Trigger
   layers:
   - Default
   - TransparentFX
