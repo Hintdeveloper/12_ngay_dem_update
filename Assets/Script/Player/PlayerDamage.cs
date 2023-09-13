@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -14,6 +14,14 @@ public class PlayerDamage : MonoBehaviour
     bool isDestroyed;
     //Call game over
     public GameManager gameManager;
+
+    //PLay voice on death
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +44,21 @@ public class PlayerDamage : MonoBehaviour
         if (curentHealth <= 0 && !isDestroyed)
         {
             isDestroyed = true;
+            audioManager.PlaySFX(audioManager.Death);
             gameManager.GameOver();
             Destroy(gameObject);
+        }
+    }
+
+    public void IncreaseHP(float amount)
+    {
+        curentHealth += amount;
+
+        PlayerHealthBar.SetSlider(curentHealth);
+
+        if (curentHealth >= maxHealth) 
+        {
+            curentHealth = maxHealth;
         }
     }
 }

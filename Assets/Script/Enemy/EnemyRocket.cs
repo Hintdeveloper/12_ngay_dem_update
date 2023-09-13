@@ -39,5 +39,9 @@ public class EnemyRocket : MonoBehaviour
             collision.GetComponent<PlayerDamage>().TakeDamage(damage);
             Destroy(gameObject);
         }
+        else if (collision.gameObject.tag == "Shield")
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
@@ -12,6 +13,8 @@ public class MenuManager : MonoBehaviour
     public Button ExitBtn;
     public Button YesBtn;
     public Button NoBtn;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,7 @@ public class MenuManager : MonoBehaviour
         ExitBtn.onClick.AddListener(ShowConfirmPanel);
         YesBtn.onClick.AddListener(YesButtonClicked);
         NoBtn.onClick.AddListener(NoButtonClicked);
+
     }
 
     public void ShowConfirmPanel()
@@ -46,4 +50,6 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
+
+
 }

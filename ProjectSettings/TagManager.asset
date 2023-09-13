@@ -9,13 +9,9 @@ TagManager:
   - Projectile
   - Enemy_1
   - Enemy_2
-<<<<<<< Updated upstream
-=======
   - Shield
   - Audio
   - Buff
-  - Trigger
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -23,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Another UI
   - 
   - 
   - 
@@ -52,4 +48,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Road
+    uniqueID: 2393749571
+    locked: 0
+  - name: House and ruin
+    uniqueID: 788958757
+    locked: 0
+  - name: Fire
+    uniqueID: 3681660915
+    locked: 0
+  - name: Object
+    uniqueID: 771156965
+    locked: 0
+  - name: Panel
+    uniqueID: 216872897
     locked: 0

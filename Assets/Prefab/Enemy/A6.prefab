@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 7.13, y: 0.34}
+  m_AnchoredPosition: {x: 0.03, y: 0}
+  m_SizeDelta: {x: 0.34, y: 1.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795152104541397401
 MonoBehaviour:
@@ -82,11 +82,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 7354007323984408980}
   m_HandleRect: {fileID: 0}
-  m_Direction: 0
+  m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -127,8 +127,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.31, y: 1.12}
-  m_SizeDelta: {x: 4.3626, y: 4.5026}
+  m_AnchoredPosition: {x: 1, y: 0.3}
+  m_SizeDelta: {x: 0.23, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &9066805304283055073
 Canvas:
@@ -150,7 +150,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 771156965
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &8309747569162100315
@@ -225,8 +225,8 @@ RectTransform:
   m_Father: {fileID: 2310832566876959824}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchorMin: {x: 0.25, y: 0}
+  m_AnchorMax: {x: 0.75, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -247,8 +247,6 @@ GameObject:
   - component: {fileID: -5913904962118919193}
   - component: {fileID: 4255247233092347592}
   - component: {fileID: -6992315669930091369}
-  - component: {fileID: -1700541935995308939}
-  - component: {fileID: -8327825697529002971}
   m_Layer: 0
   m_Name: A6
   m_TagString: Enemy
@@ -270,7 +268,7 @@ Transform:
   m_Children:
   - {fileID: 1382661696408854007}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4379761431797217121
 SpriteRenderer:
@@ -310,9 +308,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 771156965
+  m_SortingLayer: 4
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 72ec63447b2ca6d4eb04eaba5d13eb22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -407,7 +405,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.92, y: 1.68}
+  m_Size: {x: 1.94, y: 1.68}
   m_EdgeRadius: 0
 --- !u!66 &-2338749010644242684
 CompositeCollider2D:
@@ -448,20 +446,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 4488665256520045190}
     m_ColliderPaths:
-    - - X: 16223999
-        Y: 14195999
-      - X: -16223999
-        Y: 14195999
-      - X: -16223999
-        Y: -14195999
-      - X: 16223999
-        Y: -14195999
+    - - X: 38800000
+        Y: 33600000
+      - X: -38800000
+        Y: 33600000
+      - X: -38800000
+        Y: -33600000
+      - X: 38800000
+        Y: -33600000
   m_CompositePaths:
     m_Paths:
-    - - {x: 1.6223706, y: -1.4195999}
-      - {x: 1.6223706, y: 1.4195999}
-      - {x: -1.6223999, y: 1.4195706}
-      - {x: -1.6223706, y: -1.4195999}
+    - - {x: 3.8799708, y: -3.3600001}
+      - {x: 3.8799708, y: 3.3600001}
+      - {x: -3.88, y: 3.3599708}
+      - {x: -3.8799708, y: -3.3600001}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -478,19 +476,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f4b0e804b372941ba5261d0f5b5a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1557817334910332422, guid: 56155ed44b0faa74b82734531b6d2f6e, type: 3}
-  bulletSpawnPoint: {fileID: 3819247164807481016}
+  bulletPrefab: {fileID: 7924214041021195604, guid: aa05caa6677d3be44b96e3a93e882e65, type: 3}
   rocketPrefab: {fileID: 6313585964590957436, guid: 0bbc7d7576afb76429af1f50936454af, type: 3}
+  SpawnPoint: {fileID: 3819247164807481016}
   rocketSpawnPoint: {fileID: 3819247164807481016}
-  rocketSpeed: 70
   bulletSpeed: 50
-  delay: 1
-  rocketDelay: 1
+  rocketSpeed: 70
   spawnOffset: 1
-  bulletfireSound: {fileID: 8300000, guid: d02c9f7047855f04791d58416e129779, type: 3}
-  rocketfireSound: {fileID: 8300000, guid: e103594bde3297b44857138a07683e58, type: 3}
-  source: {fileID: -1700541935995308939}
-  rocketsource: {fileID: -8327825697529002971}
+  rocketDuration: 2
+  bulletDuration: 1
 --- !u!114 &4255247233092347592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,199 +511,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealthBar: {fileID: 4255247233092347592}
-  maxHealth: 100
---- !u!82 &-1700541935995308939
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4985087570456689950}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d02c9f7047855f04791d58416e129779, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.5
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!82 &-8327825697529002971
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4985087570456689950}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e103594bde3297b44857138a07683e58, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.25
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  maxHealth: 450
+  itemToDrop:
+  - {fileID: 7859611809179803403, guid: 5644bc97a141d654b88f4e383a1f5fb5, type: 3}
+  - {fileID: 7859611809179803403, guid: 0f000b0692185354880fc52ef1afd595, type: 3}
+  - {fileID: 7859611809179803403, guid: 7ebbc4a06bf695d4f9239a839829c9b4, type: 3}
+  - {fileID: 7859611809179803403, guid: 742cf096f1fe86b408075e72c5e2d1e8, type: 3}
+  - {fileID: 7859611809179803403, guid: a06b6b9b83da00943be74f28b2384cd3, type: 3}
+  - {fileID: 3767124775039554944, guid: 642cbbf6a005a12439a32cec2959c39b, type: 3}
+  table: 3200000014000000140000001e0000000a00000046000000
+  total: 0
+  randItem: 0
 --- !u!1 &6259589136642971288
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,8 +631,8 @@ RectTransform:
   m_Father: {fileID: 2310832566876959824}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchorMin: {x: 0.25, y: 0}
+  m_AnchorMax: {x: 0.75, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
