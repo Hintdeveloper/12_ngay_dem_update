@@ -63,6 +63,7 @@ public class EnemyDamage : MonoBehaviour
                 ItemDrop();
                 manager.PlaySFX(manager.Death);
                 Destroy(gameObject);
+                gameObject.GetComponent<HD_PowerUp>().OffPanel1();
             }
             else if (gameObject.CompareTag("Enemy_1"))
             {
